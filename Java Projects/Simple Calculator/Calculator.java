@@ -1,29 +1,38 @@
-import java.io.*;
-import java.lang.*;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Calculator {
+    /**
+     * @param args
+     */
     public static void main(String[] args){
+
+        char operator;
+        double Number1, Number2, Result;
          
-
         Scanner Sc = new Scanner(System.in);
-        System.out.println("Please Enter Your calculation using numbers and + , - , / , *");
 
-        String equation = Sc.next();
+        System.out.println("Please Enter Your First number");
+        Number1 = Sc.nextDouble();
 
-        String[] tokens = equation.split("(?<=[-+*/])(?=.)|(?<=.)(?=[-+*/])");
-        for(String t: tokens) {
-            System.out.println(t);
+        System.out.println("Please enter a operator + , - , / , *");
+        operator = Sc.next().charAt(0);
+
+        System.out.println("Please Enter Your Last number");
+        Number2 = Sc.nextDouble();
+
+        if (operator == '+') {
+            Result = Number1 + Number2;
+        } else if (operator == '-') {
+            Result = Number1 - Number2;
+        } else if (operator == '/') {
+            Result = Number1 / Number2;
+        } else if (operator == '*') {
+            Result = Number1 * Number2;
+        } else {
+            System.out.println("An  error has occured");
+            return;
         }
 
-
-        //
-        //for(int i=0; i<tokens ;i++)
-        //{
-        //    arr[i]=sc.nextInt();
-        //}
-        //
+        System.out.println("Result: " + Result);
     }
 }
